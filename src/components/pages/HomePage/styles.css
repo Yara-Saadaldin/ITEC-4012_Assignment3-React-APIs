@@ -1,0 +1,17 @@
+.home-page {
+    padding: 10px;
+}
+
+.plant-container {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.page-title {
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #ddd;
+}
