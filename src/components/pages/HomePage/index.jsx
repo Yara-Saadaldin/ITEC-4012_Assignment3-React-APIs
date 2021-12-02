@@ -1,11 +1,16 @@
 import "./styles.css";
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {PlantItem} from "../../PlantItem";
+
+import PlantsOrderContext from "../../../context/PlantsOrderContext";
 
 export const HomePage = () => {
 
     const [plants,
         setPlants] = useState([]);
+
+
+    const globalState = useContext(PlantsOrderContext);
 
     useEffect(() => {
         getPlants();
@@ -26,7 +31,10 @@ export const HomePage = () => {
                     return item.fields
                 });
 
+            console.log (formattedData);
             setPlants(formattedData);
+            globalState.initializePlants(formattedData);
+
 
             setLoading(false);
 
@@ -50,7 +58,7 @@ export const HomePage = () => {
                         PlantType={plant.PlantType.stringValue}></PlantItem>
                 ))
                 }
-                
+
             {
                 loading && <p>Loading data..</p>
             }

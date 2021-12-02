@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PlantsOrderContextProvider } from './context/PlantsOrderContext';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <PlantsOrderContextProvider>
     <App />
-  </React.StrictMode>,
+  </PlantsOrderContextProvider>,
   document.getElementById('root')
 );
 
