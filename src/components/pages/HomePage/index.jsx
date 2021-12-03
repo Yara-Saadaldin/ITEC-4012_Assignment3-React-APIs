@@ -1,14 +1,11 @@
 import "./styles.css";
 import {useEffect, useState, useContext} from 'react';
 import {PlantItem} from "../../PlantItem";
-
 import PlantsOrderContext from "../../../context/PlantsOrderContext";
 
 export const HomePage = () => {
 
-    const [plants,
-        setPlants] = useState([]);
-
+    const [plants, setPlants] = useState([]);
 
     const globalState = useContext(PlantsOrderContext);
 
@@ -16,25 +13,20 @@ export const HomePage = () => {
         getPlants();
     }, []);
 
-    const [loading,
-        setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const getPlants = async() => {
         try {
-            const response = await fetch('https://firestore.googleapis.com/v1/projects/itec4012-assignment3/databases/(def' +
-                    'ault)/documents/Plants/')
+            const response = await fetch('https://firestore.googleapis.com/v1/projects/itec4012-assignment3/databases/(default)/documents/Plants/')
             const data = await response.json();
             console.log(data);
-            const formattedData = data
-                .documents
-                .map((item) => {
+            const formattedData = data.documents.map((item) => {
                     return item.fields
                 });
 
-            console.log (formattedData);
+            console.log(formattedData);
             setPlants(formattedData);
             globalState.initializePlants(formattedData);
-
 
             setLoading(false);
 
@@ -55,14 +47,14 @@ export const HomePage = () => {
                         Image={plant.Image.stringValue}
                         Name={plant.Name.stringValue}
                         BotanicalName={plant.BotanicalName.stringValue}
-                        PlantType={plant.PlantType.stringValue}></PlantItem>
-                ))
-                }
-
-            {
-                loading && <p>Loading data..</p>
-            }
-
+                        PlantType={plant.PlantType.stringValue}
+                        BloomTime={plant.BloomTime.stringValue}
+                        DifficultyRating={plant.DifficultyRating.stringValue}
+                        Sunlight={plant.Sunlight.stringValue}
+                        Watering={plant.Watering.stringValue}>
+                    </PlantItem>
+                ))}
+                {loading && <p>Loading data..</p>}
             </div>
         </div>
     );

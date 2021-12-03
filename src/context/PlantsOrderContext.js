@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 
 const PlantsOrderContext = React.createContext({
     plants: [],
-    initializePlants: () => {},
+    initializePlants: () => {}
 });
 
 export const PlantsOrderContextProvider = (props) => {
-    const [plants,
-        setPlants] = useState([]);
+
+    const [plants, setPlants] = useState([]);
 
     const initializePlants = (plantsFromApi) => {
         setPlants(plantsFromApi);
@@ -15,14 +15,9 @@ export const PlantsOrderContextProvider = (props) => {
 
     return (
         <PlantsOrderContext.Provider
-            value={{
-            plants: plants,
-            initializePlants: initializePlants
-        }}>
+            value={{ plants: plants, initializePlants: initializePlants }}>
             {props.children}
         </PlantsOrderContext.Provider>
     )
-
 }
-
 export default PlantsOrderContext;

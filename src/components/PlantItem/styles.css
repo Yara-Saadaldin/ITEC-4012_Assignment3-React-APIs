@@ -3,28 +3,35 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 15px;
+    margin: 20px;
     padding: 10px;
     box-shadow: 0 2px 7px #dfdfdf;
     background: #fafafa;
+    align-items: center;
 }
 
-.plant-photo{
+.plant-photo {
     width: 100%;
-    height:400px;
+    height: 400px;
     object-fit: cover;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.plant-name{
-    font-size: 1.3rem;
-    padding: 5px;
+.plant-name {
+    font-size: 20px;
     text-transform: uppercase;
+    color: black;
 }
 
-.plant-type .plant-botanical-name{
+.plant-botanical-name {
+    font-size: 16px;
     font-weight: bold;
-    color: gray;
-    padding:5px;
-    font-size:0.9rem;
+    text-transform: uppercase;
+    color: black;
+}
+
+.plant-type {
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(75, 75, 75);
 }
